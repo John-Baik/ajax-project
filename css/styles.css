@@ -1,0 +1,25 @@
+/* NAVIGATION */
+
+.navigation {
+  display: flex;
+  background-color: red;
+  color: white;
+  height: 7rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.tabs > a {
+  margin-left: 4rem;
+  font-size: 2rem;
+  font-family: "Roboto", sans-serif;
+}
