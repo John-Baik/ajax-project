@@ -1,0 +1,35 @@
+/* NAVIGATION */
+.navigation {
+  display: flex;
+  height: 8rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-left: 2rem;
+}
+
+.tabs > a {
+  margin-left: 4rem;
+}
+
+/* BODY */
+
+.body-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30rem;
+}
+
+.body-row3 {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem 0;
+}
+
+.random-container {
+  display: flex;
+  justify-content: center;
+}
