@@ -64,6 +64,7 @@
 
 #submit:hover {
   background-color: #49a1ff;
+  cursor: pointer;
 }
 
 #submit:active {
@@ -85,6 +86,7 @@
 
 .random-container > button:hover {
   background-color: #19cebd;
+  cursor: pointer;
 }
 
 .random-container > button:active {
