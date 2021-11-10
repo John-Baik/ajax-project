@@ -21,21 +21,25 @@ searchButton.addEventListener('click', function (event) {
   xhr.addEventListener('load', function () {
     if (xhr.status === 404) {
       incorrect.setAttribute('class', 'active');
+      incorrect.textContent = 'Pokemon does not exist in Pokedex';
+    } else if (userInput === '') {
+      incorrect.setAttribute('class', 'active');
+      incorrect.textContent = 'Please type in a Pokemon name';
     } else {
       incorrect.setAttribute('class', 'invisible');
       entryForm.setAttribute('class', 'hidden');
       $characterList.setAttribute('class', 'active');
-    }
-    var name = xhr.response.name;
-    var link = xhr.response.sprites.other['official-artwork'].front_default;
-    image.setAttribute('src', link);
-    title.textContent = name;
-    for (var e = 0; e < xhr.response.stats.length; e++) {
-      var statName = xhr.response.stats[e].stat.name;
-      var statValue = xhr.response.stats[e].base_stat;
-      var stat = document.createElement('p');
-      stat.textContent = statName + ': ' + statValue;
-      statList.appendChild(stat);
+      var name = xhr.response.name;
+      var link = xhr.response.sprites.other['official-artwork'].front_default;
+      image.setAttribute('src', link);
+      title.textContent = name;
+      for (var e = 0; e < xhr.response.stats.length; e++) {
+        var statName = xhr.response.stats[e].stat.name;
+        var statValue = xhr.response.stats[e].base_stat;
+        var stat = document.createElement('p');
+        stat.textContent = statName + ': ' + statValue;
+        statList.appendChild(stat);
+      }
     }
   });
   xhr.send();
@@ -46,5 +50,4 @@ reset.addEventListener('click', function (event) {
   formResult.reset();
   $characterList.setAttribute('class', 'hidden');
   entryForm.setAttribute('class', 'active');
-
 });

@@ -24,6 +24,10 @@
 
 /* BODY */
 
+#character-list {
+  padding-inline-start: 0;
+}
+
 .body-container {
   display: flex;
   justify-content: center;
