@@ -7,7 +7,8 @@ var incorrect = document.getElementById('incorrect');
 // var randomNumber = Math.floor(Math.random() * 20);
 var image = document.querySelector('.result-image');
 var statList = document.querySelector('.stats');
-
+var reset = document.querySelector('.search-reset');
+var formResult = document.getElementById('form-result');
 var title = document.querySelector('.result-title');
 
 searchButton.addEventListener('click', function (event) {
@@ -38,4 +39,12 @@ searchButton.addEventListener('click', function (event) {
     }
   });
   xhr.send();
+});
+
+reset.addEventListener('click', function (event) {
+  form.reset();
+  formResult.reset();
+  $characterList.setAttribute('class', 'hidden');
+  entryForm.setAttribute('class', 'active');
+
 });

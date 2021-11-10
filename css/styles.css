@@ -125,6 +125,10 @@ ul {
   cursor: pointer;
 }
 
+.add:active {
+  background-color: #26a69a;
+}
+
 .search-reset {
   font-family: "Roboto", sans-serif;
   background-color: red;
@@ -138,6 +142,10 @@ ul {
 .search-reset:hover {
   background-color: rgb(255, 70, 70);
   cursor: pointer;
+}
+
+.search-reset:active {
+  background-color: rgb(196, 0, 0);
 }
 
 .fa-redo-alt {
