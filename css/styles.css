@@ -6,12 +6,12 @@
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-family: "Roboto", sans-serif;
 }
 
 .tabs > a {
-  font-size: 2rem;
+  font-size: 1.3rem;
   color: white;
   text-decoration: none;
   font-family: "Roboto", sans-serif;
@@ -21,19 +21,20 @@
 /* BODY */
 .search-pokemon {
   font-family: "Roboto", sans-serif;
-  font-size: 4rem;
+  font-size: 3rem;
   color: red;
   text-align: center;
 }
 
-#search {
+#search-box {
   padding: 1.3rem 1rem;
   font-size: 1.5rem;
 }
 
 #submit {
-  font-size: 2rem;
-  padding: 0.5rem 3rem;
+  font-size: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  margin-right: 1rem;
   color: white;
   border-radius: 0.5rem;
   background-color: #007bff;
@@ -51,9 +52,10 @@
 .random-container > button {
   background-color: #26a69a;
   color: white;
-  font-size: 2rem;
-  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  padding: 1rem 1rem;
   border-radius: 0.5rem;
+  margin-top: 2rem;
 }
 
 .random-container > button:hover {
@@ -63,4 +65,178 @@
 
 .random-container > button:active {
   background-color: #26a69a;
+}
+
+.notification > p {
+  color: red;
+  font-family: "Roboto", sans-serif;
+}
+
+/* SEARCH RESULT */
+ul {
+  list-style: none;
+}
+
+.result-image {
+  width: 70vw;
+  border: black solid;
+}
+
+.result-title {
+  font-family: "Roboto", sans-serif;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.stats-title > p {
+  font-family: "Roboto", sans-serif;
+  border: solid red;
+  padding: 0.3rem 1rem;
+  margin-left: 2.5rem;
+  background-color: red;
+  color: white;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+.stats {
+  margin-top: 1rem;
+  line-height: 1rem;
+}
+
+.stats > p {
+  font-family: "Roboto", sans-serif;
+  margin-right: 2rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.add {
+  font-family: "Roboto", sans-serif;
+  background-color: #26a69a;
+  color: white;
+  font-size: 1.3rem;
+  padding: 1rem 0.5rem;
+  border: none;
+}
+
+.add:hover {
+  background-color: #19cebd;
+  cursor: pointer;
+}
+
+.search-reset {
+  font-family: "Roboto", sans-serif;
+  background-color: red;
+  color: white;
+  font-size: 1.3rem;
+  padding: 1rem 1rem;
+  border: none;
+  border-radius: 15px;
+}
+
+.search-reset:hover {
+  background-color: rgb(255, 70, 70);
+  cursor: pointer;
+}
+
+.fa-redo-alt {
+  padding-left: 0.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 3rem;
+  }
+
+  .tabs {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .tabs > a {
+    font-size: 2rem;
+    margin-left: 4rem;
+  }
+
+  .search-pokemon {
+    font-size: 4rem;
+  }
+
+  .body-row2 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  #submit {
+    font-size: 2rem;
+    padding: 0.5rem 3rem;
+    margin-right: 0;
+  }
+
+  .random-container > button {
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+  }
+
+  #search-box {
+    width: 100%;
+  }
+
+  #incorrect {
+    font-size: 1.3rem;
+  }
+
+  .result-image {
+    width: 70%;
+  }
+
+  .container-flex {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+
+  .stat-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stats-title > p {
+    margin: 0;
+    margin-top: 0.3rem;
+    text-align: center;
+    width: 9rem;
+    font-size: 2rem;
+  }
+
+  .result-title {
+    font-size: 3rem;
+  }
+
+  .stats {
+    padding-top: 0.3rem;
+    padding-left: 1rem;
+  }
+
+  .stats > p {
+    line-height: 2rem;
+    font-size: 1.2rem;
+  }
+
+  .result-row3 > button {
+    margin: 0 2rem;
+  }
+
+  .search-reset {
+    padding: 1rem 2rem;
+    font-size: 1.7rem;
+  }
+
+  .add {
+    font-size: 1.7rem;
+    padding: 1rem 2rem;
+  }
 }
