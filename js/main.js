@@ -10,6 +10,7 @@ var statList = document.querySelector('.stats');
 var reset = document.querySelector('.search-reset');
 var formResult = document.getElementById('form-result');
 var title = document.querySelector('.result-title');
+// var randomButton = document.querySelector('.random-button');
 
 searchButton.addEventListener('click', function (event) {
   event.preventDefault();
