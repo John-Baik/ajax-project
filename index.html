@@ -8,8 +8,76 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css"
+    integrity="sha512-BnbUDfEUfV0Slx6TunuB042k9tuKe3xrD6q4mg5Ed72LTgzDIcLPxg6yI2gcMFRyomt+yJJxE+zJwNmxki6/RA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+  <div class="container">
+    <div class="navigation">
+      <div class="header">
+        <div>
+          <h1 class="title">Pokemon</h1>
+        </div>
+        <div class="tabs">
+          <a href="">Search</a>
+          <a href="">Collection</a>
+        </div>
+      </div>
+    </div>
+    <div data-view="entry-form" class="entry-form">
+      <div class="body-container">
+        <div class="body">
+          <div class="body-row1">
+            <label for="search-box">
+              <h1 class="search-pokemon">Search Pokemon</h1>
+            </label>
+          </div>
+          <div class="notification">
+            <p id="incorrect" class="invisible">placeholder</p>
+          </div>
+          <form id="search-Pokemon">
+            <div class="body-row2">
+              <input type="text" id="search-box" name="search" placeholder="Type Pokemon Name Here" required="required">
+            </div>
+            <div class="body-row3">
+              <input type="submit" id="submit" value="Search">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="random-container">
+        <button>Generate Random Pokemon</button>
+      </div>
+    </div>
+    <div data-view="entry-result" id="entry-result" class="hidden">
+      <form id="form-result">
+        <ul id="character-list">
+          <li class="result-container">
+            <div class="container-flex">
+              <div class="result-row1">
+                <h1 class="result-title"></h1>
+                <img class="result-image">
+              </div>
+              <div class="result-row2">
+                <div class="stat-box">
+                  <div class="stats-title">
+                    <p>STATS</p>
+                  </div>
+                  <div class="stats">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="result-row3">
+              <button class="add">Add to Collection</button>
+              <button class="search-reset">Search <i class="fas fa-redo-alt"></i></button>
+            </div>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
   <header>
   </header>
   <main>
