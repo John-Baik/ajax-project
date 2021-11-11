@@ -1,5 +1,4 @@
 var searchButton = document.getElementById('submit');
-
 var entryForm = document.querySelector('.entry-form');
 var form = document.getElementById('search-Pokemon');
 var $characterList = document.getElementById('entry-result');
@@ -11,6 +10,7 @@ var reset = document.querySelector('.search-reset');
 var formResult = document.getElementById('form-result');
 var title = document.querySelector('.result-title');
 var randomButton = document.querySelector('.random-button');
+var collection = document.getElementById('add');
 
 searchButton.addEventListener('click', function (event) {
   event.preventDefault();
@@ -75,4 +75,15 @@ randomButton.addEventListener('click', function (event) {
     }
   });
   xhr.send();
+});
+
+collection.addEventListener('click', function (event) {
+  event.preventDefault();
+  var object = {};
+  var name = title.textContent;
+  var photo = image.getAttribute('src');
+  object.name = name;
+  object.photo = photo;
+  object.entryId = data.nextEntryId++;
+  data.entries.unshift(object);
 });
