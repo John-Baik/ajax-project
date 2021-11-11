@@ -13,6 +13,8 @@ var randomButton = document.querySelector('.random-button');
 var collection = document.getElementById('add');
 var pokemonList = document.querySelector('.collection-box');
 var collectionPage = document.getElementById('collection');
+var collectionLink = document.querySelector('.collection-link');
+var empty = document.getElementById('empty-notice');
 
 searchButton.addEventListener('click', function (event) {
   event.preventDefault();
@@ -120,10 +122,6 @@ function renderEntries(entry) {
   collectionOptions.appendChild(remove);
   return pokemonEntry;
 }
-
-var collectionLink = document.querySelector('.collection-link');
-
-var empty = document.getElementById('empty-notice');
 
 collectionLink.addEventListener('click', function (event) {
   $characterList.setAttribute('class', 'hidden');
