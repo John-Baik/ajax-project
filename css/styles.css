@@ -166,9 +166,9 @@ ul {
   font-size: 1rem;
 }
 
-.collection-container {
-  width: 325px;
-  margin: auto;
+#collection-container {
+  display: flex;
+  justify-content: center;
 }
 
 .collection-box {
@@ -212,6 +212,10 @@ ul {
   color: red;
   font-size: 1.3rem;
   text-decoration: underline;
+}
+
+#collection-container > p {
+  font-family: "Roboto", sans-serif;
 }
 
 @media screen and (min-width: 768px) {
@@ -319,6 +323,11 @@ ul {
     width: 1200px;
   }
 
+  #collection-container {
+    display: flex;
+    justify-content: center;
+  }
+
   .collection-box {
     display: flex;
     justify-content: center;
@@ -356,6 +365,10 @@ ul {
   .collection-options > p {
     font-family: "Roboto", sans-serif;
     color: red;
+    font-size: 1.5rem;
+  }
+
+  #collection-container > p {
     font-size: 1.5rem;
   }
 }

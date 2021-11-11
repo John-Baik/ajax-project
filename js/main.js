@@ -90,6 +90,7 @@ collection.addEventListener('click', function (event) {
   object.entryId = data.nextEntryId++;
   data.entries.unshift(object);
   $characterList.setAttribute('class', 'hidden');
+  pokemonList.innerHTML = '';
   for (var i = 0; i < data.entries.length; i++) {
     var objectEntry = {};
     objectEntry.name = data.entries[i].name;
@@ -122,11 +123,21 @@ function renderEntries(entry) {
 
 var collectionLink = document.querySelector('.collection-link');
 
+var empty = document.getElementById('empty-notice');
+
 collectionLink.addEventListener('click', function (event) {
   $characterList.setAttribute('class', 'hidden');
   collectionPage.setAttribute('class', 'active');
   entryForm.setAttribute('class', 'hidden');
+  if (data.entries.length === 0) {
+    empty.setAttribute('class', 'active');
+  }
+});
 
+window.addEventListener('DOMContentLoaded', function (event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    pokemonList.appendChild(renderEntries(data.entries[i]));
+  }
 });
 
 // { /* <li class="pokemon-entry">
