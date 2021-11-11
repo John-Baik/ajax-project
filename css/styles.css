@@ -214,6 +214,10 @@ ul {
   text-decoration: underline;
 }
 
+.collection-options > p:hover {
+  cursor: pointer;
+}
+
 #collection-container > p {
   font-family: "Roboto", sans-serif;
 }

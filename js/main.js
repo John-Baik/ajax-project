@@ -116,9 +116,11 @@ function renderEntries(entry) {
   pokemonEntry.appendChild(collectionOptions);
   var view = document.createElement('p');
   view.textContent = 'View';
+  view.setAttribute('class', 'view');
   collectionOptions.appendChild(view);
   var remove = document.createElement('p');
   remove.textContent = 'Delete';
+  remove.setAttribute('class', 'remove');
   collectionOptions.appendChild(remove);
   return pokemonEntry;
 }
@@ -142,7 +144,7 @@ window.addEventListener('DOMContentLoaded', function (event) {
 //   <h1>Pikachu</h1>
 //   <img class="collection-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/188.png">
 //   <div class ="collection-options">
-//     <p>View</p>
-//     <p>Delete</p>
+//     <p class="view">View</p>
+//     <p class="remove">Delete</p>
 //   </div>
 // </li> */ }
