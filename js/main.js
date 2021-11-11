@@ -11,6 +11,8 @@ var formResult = document.getElementById('form-result');
 var title = document.querySelector('.result-title');
 var randomButton = document.querySelector('.random-button');
 var collection = document.getElementById('add');
+var pokemonList = document.querySelector('.collection-box');
+var collectionPage = document.getElementById('collection');
 
 searchButton.addEventListener('click', function (event) {
   event.preventDefault();
@@ -79,6 +81,7 @@ randomButton.addEventListener('click', function (event) {
 
 collection.addEventListener('click', function (event) {
   event.preventDefault();
+  collectionPage.setAttribute('class', 'active');
   var object = {};
   var name = title.textContent;
   var photo = image.getAttribute('src');
@@ -86,4 +89,42 @@ collection.addEventListener('click', function (event) {
   object.photo = photo;
   object.entryId = data.nextEntryId++;
   data.entries.unshift(object);
+  $characterList.setAttribute('class', 'hidden');
+  for (var i = 0; i < data.entries.length; i++) {
+    var objectEntry = {};
+    objectEntry.name = data.entries[i].name;
+    objectEntry.photo = data.entries[i].photo;
+    pokemonList.append(renderEntries(objectEntry));
+  }
 });
+
+function renderEntries(entry) {
+  var pokemonEntry = document.createElement('li');
+  pokemonEntry.setAttribute('class', 'pokemon-entry');
+  var entryTitle = document.createElement('h1');
+  entryTitle.textContent = entry.name;
+  pokemonEntry.appendChild(entryTitle);
+  var image = document.createElement('img');
+  image.setAttribute('class', 'collection-image');
+  image.setAttribute('src', entry.photo);
+  pokemonEntry.appendChild(image);
+  var collectionOptions = document.createElement('div');
+  collectionOptions.setAttribute('class', 'collection-options');
+  pokemonEntry.appendChild(collectionOptions);
+  var view = document.createElement('p');
+  view.textContent = 'View';
+  collectionOptions.appendChild(view);
+  var remove = document.createElement('p');
+  remove.textContent = 'Delete';
+  collectionOptions.appendChild(remove);
+  return pokemonEntry;
+}
+
+// { /* <li class="pokemon-entry">
+//   <h1>Pikachu</h1>
+//   <img class="collection-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/188.png">
+//   <div class ="collection-options">
+//     <p>View</p>
+//     <p>Delete</p>
+//   </div>
+// </li> */ }
