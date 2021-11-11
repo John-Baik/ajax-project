@@ -21,7 +21,7 @@
         </div>
         <div class="tabs">
           <a href="">Search</a>
-          <a href="">Collection</a>
+          <a class="collection-link">Collection</a>
         </div>
       </div>
     </div>
@@ -70,12 +70,22 @@
               </div>
             </div>
             <div class="result-row3">
-              <button class="add">Add to Collection</button>
+              <button id="add" class="add">Add to Collection</button>
               <button class="search-reset">Search <i class="fas fa-redo-alt"></i></button>
             </div>
           </li>
         </ul>
       </form>
+    </div>
+    <div data-view="collection" id="collection" class="hidden">
+      <div class="collection-header">
+        <h1>COLLECTION</h1>
+      </div>
+      <div id="collection-container">
+        <p id="empty-notice" class="hidden">No Pokemon have been added to Collection</p>
+        <ul class="collection-box">
+        </ul>
+      </div>
     </div>
   </div>
   <header>

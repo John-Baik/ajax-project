@@ -17,6 +17,9 @@
   font-family: "Roboto", sans-serif;
 }
 
+.collection-link:hover {
+  cursor: pointer;
+}
 
 /* BODY */
 .search-pokemon {
@@ -154,6 +157,67 @@ ul {
   padding-left: 0.5rem;
 }
 
+
+/* COLLECTION */
+
+.collection-header {
+  font-family: "Roboto", sans-serif;
+  color: red;
+  font-size: 1rem;
+}
+
+#collection-container {
+  display: flex;
+  justify-content: center;
+}
+
+.collection-box {
+  padding-inline-start: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 0;
+}
+
+.pokemon-entry {
+  flex-basis: 46%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: solid black;
+  margin: 0.3rem;
+}
+
+.pokemon-entry > h1 {
+  border: solid red;
+  background-color: red;
+  color: white;
+  padding: 0.4rem 1rem;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+}
+
+.collection-image {
+  width: 70%;
+}
+
+.collection-options {
+  display: flex;
+  gap: 1rem;
+}
+
+.collection-options > p {
+  font-family: "Roboto", sans-serif;
+  color: red;
+  font-size: 1.3rem;
+  text-decoration: underline;
+}
+
+#collection-container > p {
+  font-family: "Roboto", sans-serif;
+}
+
 @media screen and (min-width: 768px) {
   .title {
     font-size: 3rem;
@@ -249,5 +313,58 @@ ul {
   .add {
     font-size: 1.7rem;
     padding: 1rem 2rem;
+  }
+
+  .collection-header {
+    font-size: 1.4rem;
+  }
+
+  #collection-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .collection-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .pokemon-entry {
+    flex-basis: 20%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: solid black;
+    margin: 1rem;
+  }
+
+  .pokemon-entry > h1 {
+    border: solid red;
+    background-color: red;
+    color: white;
+    padding: 0.4rem 1rem;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    font-family: "Roboto", sans-serif;
+  }
+
+  .collection-image {
+    width: 70%;
+  }
+
+  .collection-options {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .collection-options > p {
+    font-family: "Roboto", sans-serif;
+    color: red;
+    font-size: 1.5rem;
+  }
+
+  #collection-container > p {
+    font-size: 1.5rem;
   }
 }
