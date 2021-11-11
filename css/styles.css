@@ -319,10 +319,6 @@ ul {
     font-size: 1.4rem;
   }
 
-  .collection-container {
-    width: 1200px;
-  }
-
   #collection-container {
     display: flex;
     justify-content: center;
