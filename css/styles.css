@@ -17,6 +17,9 @@
   font-family: "Roboto", sans-serif;
 }
 
+.collection-link:hover {
+  cursor: pointer;
+}
 
 /* BODY */
 .search-pokemon {
@@ -171,6 +174,7 @@ ul {
 .collection-box {
   padding-inline-start: 0;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   margin-top: 0;
 }
@@ -207,6 +211,7 @@ ul {
   font-family: "Roboto", sans-serif;
   color: red;
   font-size: 1.3rem;
+  text-decoration: underline;
 }
 
 @media screen and (min-width: 768px) {

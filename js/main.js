@@ -120,6 +120,15 @@ function renderEntries(entry) {
   return pokemonEntry;
 }
 
+var collectionLink = document.querySelector('.collection-link');
+
+collectionLink.addEventListener('click', function (event) {
+  $characterList.setAttribute('class', 'hidden');
+  collectionPage.setAttribute('class', 'active');
+  entryForm.setAttribute('class', 'hidden');
+
+});
+
 // { /* <li class="pokemon-entry">
 //   <h1>Pikachu</h1>
 //   <img class="collection-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/188.png">
