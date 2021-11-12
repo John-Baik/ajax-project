@@ -15,6 +15,8 @@ var pokemonList = document.querySelector('.collection-box');
 var collectionPage = document.getElementById('collection');
 var collectionLink = document.querySelector('.collection-link');
 var empty = document.getElementById('empty-notice');
+var modalContainer = document.getElementById('modal-container');
+var cancel = document.querySelector('.cancel');
 
 searchButton.addEventListener('click', function (event) {
   event.preventDefault();
@@ -151,8 +153,6 @@ window.addEventListener('DOMContentLoaded', function (event) {
   }
 });
 
-var modalContainer = document.getElementById('modal-container');
-
 pokemonList.addEventListener('click', function (event) {
   collection.textContent = 'Back to Collection';
   if (event.target && event.target.className === 'view') {
@@ -178,6 +178,10 @@ pokemonList.addEventListener('click', function (event) {
   if (event.target && event.target.className === 'remove') {
     modalContainer.setAttribute('class', 'active');
   }
+});
+
+cancel.addEventListener('click', function (event) {
+  modalContainer.setAttribute('class', 'invisible');
 });
 
 // Run for loop through data.entries.entryId to find matching data-entry-id number
