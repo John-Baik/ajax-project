@@ -175,6 +175,11 @@ pokemonList.addEventListener('click', function (event) {
   }
 });
 
+// Run for loop through data.entries.entryId to find matching data-entry-id number
+// if match is found, delete is from  entries using splice
+// if match is found, use .closest to find nearest li element on event.target
+// Use .remove to remove from ul.
+
 // { /* <li data-entry-id: 2 class="pokemon-entry">
 //   <h1 class="pokemon-name">Pikachu</h1>
 //   <img class="collection-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/188.png">

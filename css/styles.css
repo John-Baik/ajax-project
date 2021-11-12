@@ -222,6 +222,32 @@ ul {
   font-family: "Roboto", sans-serif;
 }
 
+/* CONFIRMATION MODAL */
+
+#modal-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  border: white solid;
+  background-color: white;
+}
+
+.modal-row1 > h1 {
+  text-align: center;
+}
+
+.modal-options {
+  display: flex;
+  justify-content: center;
+}
+
 @media screen and (min-width: 768px) {
   .title {
     font-size: 3rem;
@@ -371,4 +397,5 @@ ul {
   #collection-container > p {
     font-size: 1.5rem;
   }
+}
 }
