@@ -4,7 +4,8 @@ var data = {
   view: 'entry-result',
   entries: [],
   editing: null,
-  nextEntryId: 1
+  nextEntryId: 1,
+  searchResult: {}
 };
 
 var previousEntriesJSON = localStorage.getItem('ajax-project-data');
