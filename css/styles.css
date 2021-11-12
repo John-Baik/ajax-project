@@ -1,5 +1,75 @@
 /* NAVIGATION */
 
+/* CONFIRMATION MODAL */
+
+#modal-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-box {
+  border: white solid;
+  background-color: white;
+  margin: 0 1rem;
+  border-radius: 0.7rem;
+}
+
+.modal-row1 > h1 {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1.4rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  line-height: 2.5rem;
+}
+
+.modal-options {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 1rem;
+}
+
+.modal-options > button {
+  padding: 0.6rem 1rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.3rem;
+  border-radius: 0.3rem;
+  border: none;
+  color: white;
+}
+
+.cancel {
+  background-color: gray;
+}
+
+.cancel:hover {
+  background-color: rgb(179, 179, 179);
+  cursor: pointer;
+}
+
+.cancel:active {
+  background-color: gray;
+}
+
+.confirm {
+  background-color: red;
+}
+
+.confirm:hover {
+  background-color: rgb(253, 89, 89);
+  cursor: pointer;
+}
+
+.confirm:active {
+  background-color: red;
+}
+
 .navigation {
   background-color: red;
   color: white;
@@ -222,33 +292,27 @@ ul {
   font-family: "Roboto", sans-serif;
 }
 
-/* CONFIRMATION MODAL */
-
-#modal-container {
-  background-color: rgba(0, 0, 0, 0.5);
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-box {
-  border: white solid;
-  background-color: white;
-}
-
-.modal-row1 > h1 {
-  text-align: center;
-}
-
-.modal-options {
-  display: flex;
-  justify-content: center;
-}
-
 @media screen and (min-width: 768px) {
+  /* CONFIRMATION MODAL */
+
+  .modal-box {
+    height: 16rem;
+    width: 42rem;
+  }
+
+  .modal-row1 > h1 {
+    font-size: 2.2rem;
+    padding: 1rem 0;
+    line-height: 2.5rem;
+  }
+
+  .modal-options > button {
+    padding: 1rem 1.5rem;
+    font-size: 1.5rem;
+    border: none;
+    color: white;
+  }
+
   .title {
     font-size: 3rem;
   }
@@ -397,5 +461,4 @@ ul {
   #collection-container > p {
     font-size: 1.5rem;
   }
-}
 }
