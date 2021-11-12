@@ -34,17 +34,25 @@ searchButton.addEventListener('click', function (event) {
       incorrect.setAttribute('class', 'invisible');
       entryForm.setAttribute('class', 'hidden');
       $characterList.setAttribute('class', 'active');
+      var object = {};
       var name = xhr.response.name;
       var link = xhr.response.sprites.other['official-artwork'].front_default;
+      object.name = name;
+      object.photo = link;
       image.setAttribute('src', link);
       title.textContent = name;
+      var statArray = [];
       for (var e = 0; e < xhr.response.stats.length; e++) {
         var statName = xhr.response.stats[e].stat.name;
         var statValue = xhr.response.stats[e].base_stat;
         var stat = document.createElement('p');
         stat.textContent = statName + ': ' + statValue;
         statList.appendChild(stat);
+        statArray.push(stat.textContent);
+
       }
+      object.statArray = statArray;
+      data.searchResult = object;
     }
   });
   xhr.send();
@@ -66,38 +74,38 @@ randomButton.addEventListener('click', function (event) {
     incorrect.setAttribute('class', 'invisible');
     entryForm.setAttribute('class', 'hidden');
     $characterList.setAttribute('class', 'active');
+    var object = {};
     var name = xhr.response.name;
     var link = xhr.response.sprites.other['official-artwork'].front_default;
+    object.name = name;
+    object.photo = link;
     image.setAttribute('src', link);
     title.textContent = name;
+    var statArray = [];
     for (var e = 0; e < xhr.response.stats.length; e++) {
       var statName = xhr.response.stats[e].stat.name;
       var statValue = xhr.response.stats[e].base_stat;
       var stat = document.createElement('p');
       stat.textContent = statName + ': ' + statValue;
       statList.appendChild(stat);
+      statArray.push(stat.textContent);
     }
+    object.statArray = statArray;
+    data.searchResult = object;
   });
   xhr.send();
 });
 
 collection.addEventListener('click', function (event) {
+
   event.preventDefault();
   collectionPage.setAttribute('class', 'active');
-  var object = {};
-  var name = title.textContent;
-  var photo = image.getAttribute('src');
-  object.name = name;
-  object.photo = photo;
-  object.entryId = data.nextEntryId++;
-  data.entries.unshift(object);
+  data.searchResult.entryId = data.nextEntryId++;
+  data.entries.unshift(data.searchResult);
   $characterList.setAttribute('class', 'hidden');
   pokemonList.innerHTML = '';
   for (var i = 0; i < data.entries.length; i++) {
-    var objectEntry = {};
-    objectEntry.name = data.entries[i].name;
-    objectEntry.photo = data.entries[i].photo;
-    pokemonList.append(renderEntries(objectEntry));
+    pokemonList.append(renderEntries(data.entries[i]));
   }
 });
 
@@ -105,6 +113,7 @@ function renderEntries(entry) {
   var pokemonEntry = document.createElement('li');
   pokemonEntry.setAttribute('class', 'pokemon-entry');
   var entryTitle = document.createElement('h1');
+  entryTitle.setAttribute('class', 'pokemon-name');
   entryTitle.textContent = entry.name;
   pokemonEntry.appendChild(entryTitle);
   var image = document.createElement('img');
@@ -115,6 +124,7 @@ function renderEntries(entry) {
   collectionOptions.setAttribute('class', 'collection-options');
   pokemonEntry.appendChild(collectionOptions);
   var view = document.createElement('p');
+  view.setAttribute('data-entry-id', entry.entryId);
   view.textContent = 'View';
   view.setAttribute('class', 'view');
   collectionOptions.appendChild(view);
@@ -140,8 +150,31 @@ window.addEventListener('DOMContentLoaded', function (event) {
   }
 });
 
-// { /* <li class="pokemon-entry">
-//   <h1>Pikachu</h1>
+pokemonList.addEventListener('click', function (event) {
+  if (event.target && event.target.className === 'view') {
+    $characterList.setAttribute('class', 'active');
+    collectionPage.setAttribute('class', 'hidden');
+    for (var e = 0; e < data.entries.length; e++) {
+      if (data.entries[e].entryId === parseInt(event.target.getAttribute('data-entry-id'))) {
+        title.textContent = data.entries[e].name;
+        image.setAttribute('src', data.entries[e].photo);
+        var statsList = document.querySelectorAll('div.stats > p');
+        for (var p = 0; p < data.entries[e].statArray.length; p++) {
+          if (statsList.length === 0) {
+            var stat = document.createElement('p');
+            stat.textContent = data.entries[e].statArray[p];
+            statList.appendChild(stat);
+          } else {
+            statsList[p].textContent = data.entries[e].statArray[p];
+          }
+        }
+      }
+    }
+  }
+});
+
+// { /* <li data-entry-id: 2 class="pokemon-entry">
+//   <h1 class="pokemon-name">Pikachu</h1>
 //   <img class="collection-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/188.png">
 //   <div class ="collection-options">
 //     <p class="view">View</p>
