@@ -78,13 +78,13 @@
 
 .stat-box {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .result-row3 {
   display: flex;
   justify-content: center;
-  margin: 3rem 0;
+  margin: 1rem 0;
 }
 
 .result-row3 > button {

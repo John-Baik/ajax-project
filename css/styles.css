@@ -152,7 +152,7 @@ ul {
 }
 
 .result-image {
-  width: 70vw;
+  width: 50vw;
   border: black solid;
 }
 
@@ -175,7 +175,7 @@ ul {
 
 .stats {
   margin-top: 1rem;
-  line-height: 1.5rem;
+  line-height: 1.3rem;
 }
 
 .stats > p {
@@ -229,6 +229,9 @@ ul {
 
 
 /* COLLECTION */
+.pokemon-name {
+  text-transform: uppercase;
+}
 
 .collection-header {
   font-family: "Roboto", sans-serif;
@@ -376,6 +379,7 @@ ul {
     margin: 0;
     margin-top: 0.3rem;
     text-align: center;
+    padding: 0;
     width: 9rem;
     font-size: 2rem;
   }
@@ -393,6 +397,10 @@ ul {
     line-height: 2rem;
     font-size: 1.2rem;
     padding-left: 0;
+  }
+
+  .result-row3 {
+    margin: 3rem 0;
   }
 
   .result-row3 > button {
