@@ -97,15 +97,16 @@ randomButton.addEventListener('click', function (event) {
 });
 
 collection.addEventListener('click', function (event) {
-
   event.preventDefault();
   collectionPage.setAttribute('class', 'active');
-  data.searchResult.entryId = data.nextEntryId++;
-  data.entries.unshift(data.searchResult);
   $characterList.setAttribute('class', 'hidden');
-  pokemonList.innerHTML = '';
-  for (var i = 0; i < data.entries.length; i++) {
-    pokemonList.append(renderEntries(data.entries[i]));
+  if (collection.textContent === 'Add to Collection') {
+    data.searchResult.entryId = data.nextEntryId++;
+    data.entries.unshift(data.searchResult);
+    pokemonList.innerHTML = '';
+    for (var i = 0; i < data.entries.length; i++) {
+      pokemonList.append(renderEntries(data.entries[i]));
+    }
   }
 });
 
@@ -151,6 +152,7 @@ window.addEventListener('DOMContentLoaded', function (event) {
 });
 
 pokemonList.addEventListener('click', function (event) {
+  collection.textContent = 'Back to Collection';
   if (event.target && event.target.className === 'view') {
     $characterList.setAttribute('class', 'active');
     collectionPage.setAttribute('class', 'hidden');
