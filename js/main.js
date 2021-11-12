@@ -189,10 +189,17 @@ cancel.addEventListener('click', function (event) {
 confirmDelete.addEventListener('click', function (event) {
   modalContainer.setAttribute('class', 'invisible');
   var remove = document.querySelector('.remove');
+  pokemonList.innerHTML = '';
   for (var g = 0; g < data.entries.length; g++) {
-    if (data.entries[g].entryId === data.removeId);
-    data.entries.splice(g, 1);
-    remove.closest('li').remove();
+    if (data.entries[g].entryId === data.removeId) {
+      data.entries.splice(g, 1);
+      remove.closest('li').remove();
+    }
+    if (data.entries.length > 0 && data.entries.length !== g) {
+      pokemonList.appendChild(renderEntries(data.entries[g]));
+    } else if (data.entries.length === 0) {
+      empty.setAttribute('class', 'active');
+    }
   }
 });
 
