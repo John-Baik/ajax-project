@@ -151,6 +151,8 @@ window.addEventListener('DOMContentLoaded', function (event) {
   }
 });
 
+var modalContainer = document.getElementById('modal-container');
+
 pokemonList.addEventListener('click', function (event) {
   collection.textContent = 'Back to Collection';
   if (event.target && event.target.className === 'view') {
@@ -172,6 +174,9 @@ pokemonList.addEventListener('click', function (event) {
         }
       }
     }
+  }
+  if (event.target && event.target.className === 'remove') {
+    modalContainer.setAttribute('class', 'active');
   }
 });
 
