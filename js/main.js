@@ -17,6 +17,7 @@ var collectionLink = document.querySelector('.collection-link');
 var empty = document.getElementById('empty-notice');
 var modalContainer = document.getElementById('modal-container');
 var cancel = document.querySelector('.cancel');
+var confirmDelete = document.querySelector('.confirm');
 
 searchButton.addEventListener('click', function (event) {
   event.preventDefault();
@@ -134,6 +135,7 @@ function renderEntries(entry) {
   var remove = document.createElement('p');
   remove.textContent = 'Delete';
   remove.setAttribute('class', 'remove');
+  remove.setAttribute('data-entry-id', entry.entryId);
   collectionOptions.appendChild(remove);
   return pokemonEntry;
 }
@@ -174,9 +176,9 @@ pokemonList.addEventListener('click', function (event) {
         }
       }
     }
-  }
-  if (event.target && event.target.className === 'remove') {
+  } else if (event.target && event.target.className === 'remove') {
     modalContainer.setAttribute('class', 'active');
+    data.removeId = parseInt(event.target.getAttribute('data-entry-id'));
   }
 });
 
@@ -184,10 +186,15 @@ cancel.addEventListener('click', function (event) {
   modalContainer.setAttribute('class', 'invisible');
 });
 
-// Run for loop through data.entries.entryId to find matching data-entry-id number
-// if match is found, delete is from  entries using splice
-// if match is found, use .closest to find nearest li element on event.target
-// Use .remove to remove from ul.
+confirmDelete.addEventListener('click', function (event) {
+  modalContainer.setAttribute('class', 'invisible');
+  var remove = document.querySelector('.remove');
+  for (var g = 0; g < data.entries.length; g++) {
+    if (data.entries[g].entryId === data.removeId);
+    data.entries.splice(g, 1);
+    remove.closest('li').remove();
+  }
+});
 
 // { /* <li data-entry-id: 2 class="pokemon-entry">
 //   <h1 class="pokemon-name">Pikachu</h1>

@@ -5,7 +5,8 @@ var data = {
   entries: [],
   editing: null,
   nextEntryId: 1,
-  searchResult: {}
+  searchResult: {},
+  removeId: 0
 };
 
 var previousEntriesJSON = localStorage.getItem('ajax-project-data');
