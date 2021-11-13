@@ -15,6 +15,9 @@ var pokemonList = document.querySelector('.collection-box');
 var collectionPage = document.getElementById('collection');
 var collectionLink = document.querySelector('.collection-link');
 var empty = document.getElementById('empty-notice');
+var modalContainer = document.getElementById('modal-container');
+var cancel = document.querySelector('.cancel');
+var confirmDelete = document.querySelector('.confirm');
 
 searchButton.addEventListener('click', function (event) {
   event.preventDefault();
@@ -132,6 +135,7 @@ function renderEntries(entry) {
   var remove = document.createElement('p');
   remove.textContent = 'Delete';
   remove.setAttribute('class', 'remove');
+  remove.setAttribute('data-entry-id', entry.entryId);
   collectionOptions.appendChild(remove);
   return pokemonEntry;
 }
@@ -171,6 +175,30 @@ pokemonList.addEventListener('click', function (event) {
           }
         }
       }
+    }
+  } else if (event.target && event.target.className === 'remove') {
+    modalContainer.setAttribute('class', 'active');
+    data.removeId = parseInt(event.target.getAttribute('data-entry-id'));
+  }
+});
+
+cancel.addEventListener('click', function (event) {
+  modalContainer.setAttribute('class', 'invisible');
+});
+
+confirmDelete.addEventListener('click', function (event) {
+  modalContainer.setAttribute('class', 'invisible');
+  var remove = document.querySelector('.remove');
+  pokemonList.innerHTML = '';
+  for (var g = 0; g < data.entries.length; g++) {
+    if (data.entries[g].entryId === data.removeId) {
+      data.entries.splice(g, 1);
+      remove.closest('li').remove();
+    }
+    if (data.entries.length > 0 && data.entries.length !== g) {
+      pokemonList.appendChild(renderEntries(data.entries[g]));
+    } else if (data.entries.length === 0) {
+      empty.setAttribute('class', 'active');
     }
   }
 });
