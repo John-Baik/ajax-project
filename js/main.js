@@ -17,7 +17,7 @@ var collectionLink = document.querySelector('.collection-link');
 var empty = document.getElementById('empty-notice');
 var modalContainer = document.getElementById('modal-container');
 var cancel = document.querySelector('.cancel');
-var confirmDelete = document.querySelector('.confirm');
+var confirmDelete = document.getElementById('confirm');
 
 searchButton.addEventListener('click', function (event) {
   event.preventDefault();
@@ -99,16 +99,33 @@ randomButton.addEventListener('click', function (event) {
   xhr.send();
 });
 
+var notificationTitle = document.querySelector('.notification-title');
+
 collection.addEventListener('click', function (event) {
   event.preventDefault();
-  collectionPage.setAttribute('class', 'active');
-  $characterList.setAttribute('class', 'hidden');
-  if (collection.textContent === 'Add to Collection') {
-    data.searchResult.entryId = data.nextEntryId++;
-    data.entries.unshift(data.searchResult);
-    pokemonList.innerHTML = '';
-    for (var i = 0; i < data.entries.length; i++) {
-      pokemonList.append(renderEntries(data.entries[i]));
+  if (collection.textContent === 'Back to Collection') {
+    collectionPage.setAttribute('class', 'active');
+    $characterList.setAttribute('class', 'hidden');
+
+  } else {
+    for (var a = 0; a < data.entries.length; a++) {
+      if (data.entries[a].name === data.searchResult.name) {
+        modalContainer.setAttribute('class', 'active');
+        notificationTitle.textContent = 'Pokemon already in Collection';
+        confirmDelete.setAttribute('class', 'hidden');
+        cancel.textContent = 'Okay';
+        return;
+      }
+    }
+    collectionPage.setAttribute('class', 'active');
+    $characterList.setAttribute('class', 'hidden');
+    if (collection.textContent === 'Add to Collection') {
+      data.searchResult.entryId = data.nextEntryId++;
+      data.entries.unshift(data.searchResult);
+      pokemonList.innerHTML = '';
+      for (var i = 0; i < data.entries.length; i++) {
+        pokemonList.append(renderEntries(data.entries[i]));
+      }
     }
   }
 });
@@ -183,7 +200,16 @@ pokemonList.addEventListener('click', function (event) {
 });
 
 cancel.addEventListener('click', function (event) {
-  modalContainer.setAttribute('class', 'invisible');
+  if (notificationTitle.textContent === 'Pokemon already in Collection') {
+    $characterList.setAttribute('class', 'active');
+    notificationTitle.textContent = 'Pokemon already in Collection';
+    confirmDelete.setAttribute('class', 'active');
+    modalContainer.setAttribute('class', 'invisible');
+    cancel.textContent = 'Cancel';
+    notificationTitle.textContent = 'Are you sure you want to delete this Pokemon from your collection?';
+  } else {
+    modalContainer.setAttribute('class', 'invisible');
+  }
 });
 
 confirmDelete.addEventListener('click', function (event) {

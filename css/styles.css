@@ -16,7 +16,7 @@
   border: white solid;
   background-color: white;
   margin: 0 1rem;
-  border-radius: 0.7rem;
+  border-radius: 1rem;
 }
 
 .modal-row1 > h1 {
@@ -32,7 +32,7 @@
 .modal-options {
   display: flex;
   justify-content: space-around;
-  padding-bottom: 1rem;
+  padding-bottom: 0.7rem;
 }
 
 .modal-options > button {
@@ -57,16 +57,16 @@
   background-color: gray;
 }
 
-.confirm {
+#confirm {
   background-color: red;
 }
 
-.confirm:hover {
+#confirm:hover {
   background-color: rgb(253, 89, 89);
   cursor: pointer;
 }
 
-.confirm:active {
+#confirm:active {
   background-color: red;
 }
 

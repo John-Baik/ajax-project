@@ -5,7 +5,7 @@ var data = {
   entries: [],
   editing: null,
   nextEntryId: 1,
-  searchResult: {},
+  searchResult: null,
   removeId: 0
 };
 
