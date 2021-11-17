@@ -419,6 +419,12 @@ ul {
 
   .collection-header {
     font-size: 1.4rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .collection-header::before {
+    content: "";
   }
 
   #collection-container {
@@ -468,5 +474,9 @@ ul {
 
   #collection-container > p {
     font-size: 1.5rem;
+  }
+
+  #category {
+    position: relative;
   }
 }
