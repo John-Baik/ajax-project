@@ -242,6 +242,9 @@ sort.addEventListener('change', function (event) {
       array.reverse();
     }
   }
+  if (event.target.value === 'oldest') {
+    array.reverse();
+  }
   for (var s = 0; s < array.length; s++) {
     for (var k = 0; k < data.entries.length; k++) {
       if (data.entries[k].name === array[s]) {
