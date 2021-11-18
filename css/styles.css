@@ -237,6 +237,14 @@ ul {
   font-family: "Roboto", sans-serif;
   color: red;
   font-size: 1rem;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding-bottom: 1rem;
+}
+
+#sort {
+  font-size: 1.3rem;
 }
 
 #collection-container {
@@ -419,6 +427,19 @@ ul {
 
   .collection-header {
     font-size: 1.4rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: initial;
+    padding-bottom: 0;
+  }
+
+  #sort {
+    position: absolute;
+    margin-left: 5rem;
+    margin-top: 2.7rem;
+    padding: 0.2rem 1rem;
+    font-size: 1.3rem;
+    font-family: "Roboto", sans-serif;
   }
 
   #collection-container {
@@ -469,4 +490,9 @@ ul {
   #collection-container > p {
     font-size: 1.5rem;
   }
+
+  #category {
+    position: relative;
+  }
+}
 }

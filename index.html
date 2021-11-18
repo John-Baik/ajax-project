@@ -93,6 +93,12 @@
     <div data-view="collection" id="collection" class="hidden">
       <div class="collection-header">
         <h1>COLLECTION</h1>
+        <form id="category">
+          <select id="sort" name="sort" onchange="alphabetical(event)">
+            <option value="newest">Sort By: Newest First</option>
+            <option id="alphabetical" value="alphabetical">Sort By: A-Z</option>
+          </select>
+        </form>
       </div>
       <div id="collection-container">
         <p id="empty-notice" class="hidden">No Pokemon have been added to Collection</p>
