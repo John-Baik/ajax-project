@@ -94,9 +94,9 @@
       <div class="collection-header">
         <h1>COLLECTION</h1>
         <form id="category">
-          <select id="sort" name="sort">
-            <option value="alphabetical">Sort By: Newest First</option>
-            <option value="alphabetical"></option>
+          <select id="sort" name="sort" onchange="alphabetical(event)">
+            <option value="newest">Sort By: Newest First</option>
+            <option id="alphabetical" value="alphabetical">Sort By: A-Z</option>
           </select>
         </form>
       </div>

@@ -18,6 +18,7 @@ var empty = document.getElementById('empty-notice');
 var modalContainer = document.getElementById('modal-container');
 var cancel = document.querySelector('.cancel');
 var confirmDelete = document.getElementById('confirm');
+var notificationTitle = document.querySelector('.notification-title');
 
 searchButton.addEventListener('click', function (event) {
   event.preventDefault();
@@ -99,14 +100,11 @@ randomButton.addEventListener('click', function (event) {
   xhr.send();
 });
 
-var notificationTitle = document.querySelector('.notification-title');
-
 collection.addEventListener('click', function (event) {
   event.preventDefault();
   if (collection.textContent === 'Back to Collection') {
     collectionPage.setAttribute('class', 'active');
     $characterList.setAttribute('class', 'hidden');
-
   } else {
     for (var a = 0; a < data.entries.length; a++) {
       if (data.entries[a].name === data.searchResult.name) {
@@ -225,6 +223,30 @@ confirmDelete.addEventListener('click', function (event) {
       pokemonList.appendChild(renderEntries(data.entries[g]));
     } else if (data.entries.length === 0) {
       empty.setAttribute('class', 'active');
+    }
+  }
+});
+
+var sort = document.getElementById('sort');
+
+sort.addEventListener('change', function (event) {
+  if (event.target.value === 'alphabetical') {
+    pokemonList.innerHTML = '';
+    var array = [];
+    var alphabet = [];
+    for (var z = 0; z < data.entries.length; z++) {
+      array.push(data.entries[z].name);
+    }
+    array.sort();
+    for (var s = 0; s < array.length; s++) {
+      for (var k = 0; k < data.entries.length; k++) {
+        if (data.entries[k].name === array[s]) {
+          alphabet.push(data.entries[k]);
+        }
+      }
+    }
+    for (var d = 0; d < alphabet.length; d++) {
+      pokemonList.append(renderEntries(alphabet[d]));
     }
   }
 });
