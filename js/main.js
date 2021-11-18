@@ -230,24 +230,27 @@ confirmDelete.addEventListener('click', function (event) {
 var sort = document.getElementById('sort');
 
 sort.addEventListener('change', function (event) {
-  if (event.target.value === 'alphabetical') {
-    pokemonList.innerHTML = '';
-    var array = [];
-    var alphabet = [];
-    for (var z = 0; z < data.entries.length; z++) {
-      array.push(data.entries[z].name);
+  pokemonList.innerHTML = '';
+  var array = [];
+  var alphabet = [];
+  for (var z = 0; z < data.entries.length; z++) {
+    array.push(data.entries[z].name);
+    if (event.target.value === 'alphabetical') {
+      array.sort();
+    } else if (event.target.value === 'reverse-alphabetical') {
+      array.sort();
+      array.reverse();
     }
-    array.sort();
-    for (var s = 0; s < array.length; s++) {
-      for (var k = 0; k < data.entries.length; k++) {
-        if (data.entries[k].name === array[s]) {
-          alphabet.push(data.entries[k]);
-        }
+  }
+  for (var s = 0; s < array.length; s++) {
+    for (var k = 0; k < data.entries.length; k++) {
+      if (data.entries[k].name === array[s]) {
+        alphabet.push(data.entries[k]);
       }
     }
-    for (var d = 0; d < alphabet.length; d++) {
-      pokemonList.append(renderEntries(alphabet[d]));
-    }
+  }
+  for (var d = 0; d < alphabet.length; d++) {
+    pokemonList.append(renderEntries(alphabet[d]));
   }
 });
 
