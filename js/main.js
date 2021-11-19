@@ -100,6 +100,8 @@ randomButton.addEventListener('click', function (event) {
   xhr.send();
 });
 
+var total = document.querySelector('.total');
+
 collection.addEventListener('click', function (event) {
   event.preventDefault();
   if (collection.textContent === 'Back to Collection') {
@@ -126,6 +128,7 @@ collection.addEventListener('click', function (event) {
       }
     }
   }
+  total.textContent = 'Number of Pokemon: ' + data.entries.length;
 });
 
 function renderEntries(entry) {
@@ -162,6 +165,7 @@ collectionLink.addEventListener('click', function (event) {
   if (data.entries.length === 0) {
     empty.setAttribute('class', 'active');
   }
+  total.textContent = 'Number of Pokemon: ' + data.entries.length;
 });
 
 window.addEventListener('DOMContentLoaded', function (event) {
@@ -225,6 +229,7 @@ confirmDelete.addEventListener('click', function (event) {
       empty.setAttribute('class', 'active');
     }
   }
+  total.textContent = 'Number of Pokemon: ' + data.entries.length;
 });
 
 var sort = document.getElementById('sort');
