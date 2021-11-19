@@ -146,6 +146,15 @@
   font-family: "Roboto", sans-serif;
 }
 
+#total-mobile {
+  display: flex;
+  margin-top: 0;
+}
+
+#total-desktop {
+  display: none;
+}
+
 /* SEARCH RESULT */
 ul {
   list-style: none;
@@ -487,7 +496,11 @@ ul {
     font-size: 1.5rem;
   }
 
-  #category {
-    position: relative;
+  #total-mobile {
+    display: none;
+  }
+
+  #total-desktop {
+    display: flex;
   }
 }
