@@ -1,7 +1,3 @@
-/* NAVIGATION */
-
-/* CONFIRMATION MODAL */
-
 #modal-container {
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
@@ -91,7 +87,6 @@
   cursor: pointer;
 }
 
-/* BODY */
 .search-pokemon {
   font-family: "Roboto", sans-serif;
   font-size: 3rem;
@@ -146,7 +141,15 @@
   font-family: "Roboto", sans-serif;
 }
 
-/* SEARCH RESULT */
+#total-mobile {
+  display: flex;
+  margin-top: 0;
+}
+
+#total-desktop {
+  display: none;
+}
+
 ul {
   list-style: none;
 }
@@ -227,8 +230,6 @@ ul {
   padding-left: 0.5rem;
 }
 
-
-/* COLLECTION */
 .pokemon-name {
   text-transform: uppercase;
 }
@@ -304,8 +305,6 @@ ul {
 }
 
 @media screen and (min-width: 768px) {
-  /* CONFIRMATION MODAL */
-
   .modal-box {
     height: 16rem;
     width: 42rem;
@@ -428,16 +427,12 @@ ul {
   .collection-header {
     font-size: 1.4rem;
     flex-direction: row;
-    justify-content: center;
-    align-items: initial;
+    justify-content: space-around;
+    align-items: center;
     padding-bottom: 0;
   }
 
   #sort {
-    position: absolute;
-    margin-left: 5rem;
-    margin-top: 2.7rem;
-    padding: 0.2rem 1rem;
     font-size: 1.3rem;
     font-family: "Roboto", sans-serif;
   }
@@ -491,8 +486,11 @@ ul {
     font-size: 1.5rem;
   }
 
-  #category {
-    position: relative;
+  #total-mobile {
+    display: none;
   }
-}
+
+  #total-desktop {
+    display: flex;
+  }
 }
