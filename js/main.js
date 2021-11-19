@@ -265,12 +265,3 @@ sort.addEventListener('change', function (event) {
     pokemonList.append(renderEntries(alphabet[d]));
   }
 });
-
-// { /* <li data-entry-id: 2 class="pokemon-entry">
-//   <h1 class="pokemon-name">Pikachu</h1>
-//   <img class="collection-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/188.png">
-//   <div class ="collection-options">
-//     <p class="view">View</p>
-//     <p class="remove">Delete</p>
-//   </div>
-// </li> */ }

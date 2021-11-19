@@ -1,7 +1,3 @@
-/* NAVIGATION */
-
-/* CONFIRMATION MODAL */
-
 #modal-container {
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
@@ -91,7 +87,6 @@
   cursor: pointer;
 }
 
-/* BODY */
 .search-pokemon {
   font-family: "Roboto", sans-serif;
   font-size: 3rem;
@@ -155,7 +150,6 @@
   display: none;
 }
 
-/* SEARCH RESULT */
 ul {
   list-style: none;
 }
@@ -236,8 +230,6 @@ ul {
   padding-left: 0.5rem;
 }
 
-
-/* COLLECTION */
 .pokemon-name {
   text-transform: uppercase;
 }
@@ -313,8 +305,6 @@ ul {
 }
 
 @media screen and (min-width: 768px) {
-  /* CONFIRMATION MODAL */
-
   .modal-box {
     height: 16rem;
     width: 42rem;
