@@ -6,6 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 .modal-box {
@@ -73,7 +74,38 @@
 
 .title {
   font-size: 1.6rem;
+  font-family: 'Pokemon', sans-serif;
+  color: white;
+  letter-spacing: 0.2rem;
+  text-decoration: none;
+}
+
+.collection-options > a {
   font-family: "Roboto", sans-serif;
+  font-size: 1.3rem;
+}
+
+.remove {
+  border: solid red;
+  color: red;
+  border-radius: 0.4rem;
+  background-color: white;
+  padding: 0.5rem 1rem;
+}
+
+.remove:hover {
+  color: white;
+  background-color: red;
+}
+
+.remove:active {
+  color: white;
+  background-color: rgba(194, 0, 0, 0.781);
+}
+
+.red {
+  background-color: red;
+  color: white;
 }
 
 .tabs > a {
@@ -81,6 +113,12 @@
   color: white;
   text-decoration: none;
   font-family: "Roboto", sans-serif;
+  transition: 0.5s;
+}
+
+.tabs > a:hover {
+  transform: scale(1.2);
+  transition: all 0.2s ease-in-out;
 }
 
 .collection-link:hover {
@@ -144,6 +182,7 @@
 #total-mobile {
   display: flex;
   margin-top: 0;
+  font-size: 1.2rem;
 }
 
 #total-desktop {
@@ -163,6 +202,7 @@ ul {
   font-family: "Roboto", sans-serif;
   margin-top: 0;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .stats-title > p {
@@ -194,7 +234,7 @@ ul {
   background-color: #26a69a;
   color: white;
   font-size: 1.3rem;
-  padding: 1rem 0.5rem;
+  padding: 1rem 1rem;
   border: none;
 }
 
@@ -212,7 +252,7 @@ ul {
   background-color: red;
   color: white;
   font-size: 1.3rem;
-  padding: 1rem 1rem;
+  padding: 1rem 1.5rem;
   border: none;
   border-radius: 15px;
 }
@@ -232,6 +272,9 @@ ul {
 
 .pokemon-name {
   text-transform: uppercase;
+  text-align: center;
+  width: 9rem;
+  margin: 0 1rem;
 }
 
 .collection-header {
@@ -244,8 +287,18 @@ ul {
   padding-bottom: 1rem;
 }
 
+.collection-header > h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.3rem;
+}
+
 #sort {
   font-size: 1.3rem;
+  padding: 0.3rem 1rem;
+}
+
+#sort:hover {
+  cursor: pointer;
 }
 
 #collection-container {
@@ -266,13 +319,24 @@ ul {
   display: flex;
   align-items: center;
   flex-direction: column;
-  border: solid black;
-  margin: 0.3rem;
+  border: solid;
+  margin: 0.5rem;
+  transition: 0.3s;
+}
+
+.pokemon-entry:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.big {
+  transform: scale(1.05);
 }
 
 .pokemon-entry > h1 {
   border: solid red;
   background-color: red;
+  border-radius: 0.2rem;
   color: white;
   padding: 0.4rem 1rem;
   margin-top: 0.5rem;
@@ -282,21 +346,16 @@ ul {
 
 .collection-image {
   width: 70%;
+  margin-top: 1rem;
 }
 
 .collection-options {
   display: flex;
   gap: 1rem;
+  margin: 2rem 0;
 }
 
-.collection-options > p {
-  font-family: "Roboto", sans-serif;
-  color: red;
-  font-size: 1.3rem;
-  text-decoration: underline;
-}
-
-.collection-options > p:hover {
+.collection-options > a:hover {
   cursor: pointer;
 }
 
@@ -339,6 +398,7 @@ ul {
 
   .search-pokemon {
     font-size: 4rem;
+    margin-bottom: 0;
   }
 
   .body-row2 {
@@ -368,7 +428,7 @@ ul {
   }
 
   .result-image {
-    width: 70%;
+    width: 61%;
   }
 
   .container-flex {
@@ -393,6 +453,7 @@ ul {
 
   .result-title {
     font-size: 3rem;
+    width: 31rem;
   }
 
   .stats {
@@ -432,9 +493,15 @@ ul {
     padding-bottom: 0;
   }
 
+  .collection-header > h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.67em;
+  }
+
   #sort {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     font-family: "Roboto", sans-serif;
+    padding: 0.3rem 1rem;
   }
 
   #collection-container {
@@ -457,6 +524,10 @@ ul {
     margin: 1rem;
   }
 
+  .pokemon-entry:hover {
+    transform: scale(1.1);
+  }
+
   .pokemon-entry > h1 {
     border: solid red;
     background-color: red;
@@ -476,9 +547,7 @@ ul {
     gap: 2rem;
   }
 
-  .collection-options > p {
-    font-family: "Roboto", sans-serif;
-    color: red;
+  .collection-options > a {
     font-size: 1.5rem;
   }
 
@@ -492,5 +561,15 @@ ul {
 
   #total-desktop {
     display: flex;
+    font-size: 1.7rem;
+  }
+
+  .big {
+    transform: scale(1.1);
+  }
+
+  .pokemon-name {
+    width: 16rem;
+    margin: 0 1rem;
   }
 }
