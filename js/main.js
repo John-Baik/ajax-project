@@ -3,7 +3,7 @@ var entryForm = document.querySelector('.entry-form');
 var form = document.getElementById('search-Pokemon');
 var $characterList = document.getElementById('entry-result');
 var incorrect = document.getElementById('incorrect');
-var randomNumber = Math.floor(Math.random() * 1000);
+var randomNumber = Math.ceil(Math.random() * 897);
 var image = document.querySelector('.result-image');
 var statList = document.querySelector('.stats');
 var reset = document.querySelector('.search-reset');
@@ -30,10 +30,10 @@ searchButton.addEventListener('click', function (event) {
   xhr.addEventListener('load', function () {
     if (xhr.status === 404) {
       incorrect.setAttribute('class', 'active');
-      incorrect.textContent = 'Pokemon does not exist in Pokedex';
+      incorrect.textContent = 'Pokémon does not exist in Pokédex';
     } else if (userInput === '') {
       incorrect.setAttribute('class', 'active');
-      incorrect.textContent = 'Please type in a Pokemon name';
+      incorrect.textContent = 'Please type in a Pokémon name';
     } else {
       incorrect.setAttribute('class', 'invisible');
       entryForm.setAttribute('class', 'hidden');
@@ -129,31 +129,30 @@ collection.addEventListener('click', function (event) {
       }
     }
   }
-  total.textContent = 'Number of Pokemon: ' + data.entries.length;
-  totaMobile.textContent = 'Number of Pokemon: ' + data.entries.length;
+  total.textContent = 'Number of Pokémon: ' + data.entries.length;
+  totaMobile.textContent = 'Number of Pokémon: ' + data.entries.length;
 });
 
 function renderEntries(entry) {
   var pokemonEntry = document.createElement('li');
   pokemonEntry.setAttribute('class', 'pokemon-entry');
+  pokemonEntry.setAttribute('data-entry-id', entry.entryId);
   var entryTitle = document.createElement('h1');
   entryTitle.setAttribute('class', 'pokemon-name');
+  entryTitle.setAttribute('data-entry-id', entry.entryId);
   entryTitle.textContent = entry.name;
   pokemonEntry.appendChild(entryTitle);
   var image = document.createElement('img');
   image.setAttribute('class', 'collection-image');
   image.setAttribute('src', entry.photo);
+  image.setAttribute('data-entry-id', entry.entryId);
   pokemonEntry.appendChild(image);
   var collectionOptions = document.createElement('div');
   collectionOptions.setAttribute('class', 'collection-options');
   pokemonEntry.appendChild(collectionOptions);
-  var view = document.createElement('p');
-  view.setAttribute('data-entry-id', entry.entryId);
-  view.textContent = 'View';
-  view.setAttribute('class', 'view');
-  collectionOptions.appendChild(view);
-  var remove = document.createElement('p');
+  var remove = document.createElement('a');
   remove.textContent = 'Delete';
+  remove.setAttribute('id', 'remove' + entry.entryId);
   remove.setAttribute('class', 'remove');
   remove.setAttribute('data-entry-id', entry.entryId);
   collectionOptions.appendChild(remove);
@@ -179,7 +178,7 @@ window.addEventListener('DOMContentLoaded', function (event) {
 
 pokemonList.addEventListener('click', function (event) {
   collection.textContent = 'Back to Collection';
-  if (event.target && event.target.className === 'view') {
+  if ((event.target && event.target.className === 'pokemon-entry') | (event.target && event.target.className === 'collection-image') | (event.target && event.target.className === 'pokemon-name')) {
     $characterList.setAttribute('class', 'active');
     collectionPage.setAttribute('class', 'hidden');
     for (var e = 0; e < data.entries.length; e++) {
@@ -199,6 +198,14 @@ pokemonList.addEventListener('click', function (event) {
       }
     }
   } else if (event.target && event.target.className === 'remove') {
+    event.target.setAttribute('class', 'remove red');
+    var liList = document.querySelectorAll('.pokemon-entry');
+    var value = event.target.getAttribute('data-entry-id');
+    for (var w = 0; w < liList.length; w++) {
+      if (liList[w].getAttribute('data-entry-id') === value) {
+        liList[w].setAttribute('class', 'pokemon-entry big');
+      }
+    }
     modalContainer.setAttribute('class', 'active');
     data.removeId = parseInt(event.target.getAttribute('data-entry-id'));
   }
@@ -214,6 +221,15 @@ cancel.addEventListener('click', function (event) {
     notificationTitle.textContent = 'Are you sure you want to delete this Pokemon from your collection?';
   } else {
     modalContainer.setAttribute('class', 'invisible');
+    var liList = document.querySelectorAll('.pokemon-entry');
+    for (var h = 0; h < liList.length; h++) {
+      if (parseInt((liList[h].getAttribute('data-entry-id'))) === data.removeId) {
+        liList[h].setAttribute('class', 'pokemon-entry');
+        var removeName = 'remove' + data.removeId;
+        var removeOption = document.getElementById(removeName);
+        removeOption.setAttribute('class', 'remove');
+      }
+    }
   }
 });
 
