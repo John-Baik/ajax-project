@@ -19,6 +19,9 @@ var modalContainer = document.getElementById('modal-container');
 var cancel = document.querySelector('.cancel');
 var confirmDelete = document.getElementById('confirm');
 var notificationTitle = document.querySelector('.notification-title');
+var total = document.querySelector('.total');
+var totaMobile = document.querySelector('.total-mobile');
+var sort = document.getElementById('sort');
 
 searchButton.addEventListener('click', function (event) {
   event.preventDefault();
@@ -99,9 +102,6 @@ randomButton.addEventListener('click', function (event) {
   });
   xhr.send();
 });
-
-var total = document.querySelector('.total');
-var totaMobile = document.querySelector('.total-mobile');
 
 collection.addEventListener('click', function (event) {
   event.preventDefault();
@@ -251,8 +251,6 @@ confirmDelete.addEventListener('click', function (event) {
   total.textContent = 'Number of Pokemon: ' + data.entries.length;
   totaMobile.textContent = 'Number of Pokemon: ' + data.entries.length;
 });
-
-var sort = document.getElementById('sort');
 
 sort.addEventListener('change', function (event) {
   pokemonList.innerHTML = '';
