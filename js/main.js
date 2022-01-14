@@ -19,6 +19,10 @@ var modalContainer = document.getElementById('modal-container');
 var cancel = document.querySelector('.cancel');
 var confirmDelete = document.getElementById('confirm');
 var notificationTitle = document.querySelector('.notification-title');
+var loadingIcon = document.getElementById('loading-icon');
+const $imgElement = document.querySelector('.result-image');
+var noConnectionMessage = document.getElementById('no-connection');
+var collectonSearchButton = document.getElementById('collection-search-button');
 var total = document.querySelector('.total');
 var totaMobile = document.querySelector('.total-mobile');
 var sort = document.getElementById('sort');
@@ -27,42 +31,49 @@ searchButton.addEventListener('click', function (event) {
   event.preventDefault();
   var userInput = form.elements.search.value;
   var lowerCaseInput = userInput.toLowerCase();
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon/' + lowerCaseInput);
-  xhr.responseType = 'json';
-  xhr.addEventListener('load', function () {
-    if (xhr.status === 404) {
-      incorrect.setAttribute('class', 'active');
-      incorrect.textContent = 'Pokémon does not exist in Pokédex';
-    } else if (userInput === '') {
-      incorrect.setAttribute('class', 'active');
-      incorrect.textContent = 'Please type in a Pokémon name';
-    } else {
-      incorrect.setAttribute('class', 'invisible');
+  if (userInput === '') {
+    incorrect.setAttribute('class', 'active');
+    incorrect.textContent = 'Please type in a Pokémon name';
+  } else {
+    entryForm.setAttribute('class', 'hidden');
+    $characterList.setAttribute('class', 'loading active');
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon/' + lowerCaseInput);
+    xhr.responseType = 'json';
+    xhr.addEventListener('error', function () {
       entryForm.setAttribute('class', 'hidden');
-      $characterList.setAttribute('class', 'active');
-      var object = {};
-      var name = xhr.response.name;
-      var link = xhr.response.sprites.other['official-artwork'].front_default;
-      object.name = name;
-      object.photo = link;
-      image.setAttribute('src', link);
-      title.textContent = name;
-      var statArray = [];
-      for (var e = 0; e < xhr.response.stats.length; e++) {
-        var statName = xhr.response.stats[e].stat.name;
-        var statValue = xhr.response.stats[e].base_stat;
-        var stat = document.createElement('p');
-        stat.textContent = statName + ': ' + statValue;
-        statList.appendChild(stat);
-        statArray.push(stat.textContent);
-
+      $characterList.setAttribute('class', 'hidden');
+      noConnectionMessage.setAttribute('class', 'no-connection');
+    });
+    xhr.addEventListener('load', function () {
+      if (xhr.status === 404) {
+        entryForm.setAttribute('class', 'entry-form');
+        incorrect.setAttribute('class', 'active');
+        incorrect.textContent = 'Pokémon does not exist in Pokédex. Try again.';
+        $characterList.setAttribute('class', 'hidden');
+      } else {
+        var object = {};
+        var name = xhr.response.name;
+        var link = xhr.response.sprites.other['official-artwork'].front_default;
+        object.name = name;
+        object.photo = link;
+        image.setAttribute('src', link);
+        title.textContent = name;
+        var statArray = [];
+        for (var e = 0; e < xhr.response.stats.length; e++) {
+          var statName = xhr.response.stats[e].stat.name;
+          var statValue = xhr.response.stats[e].base_stat;
+          var stat = document.createElement('p');
+          stat.textContent = statName + ': ' + statValue;
+          statList.appendChild(stat);
+          statArray.push(stat.textContent);
+        }
+        object.statArray = statArray;
+        data.searchResult = object;
       }
-      object.statArray = statArray;
-      data.searchResult = object;
-    }
-  });
-  xhr.send();
+    });
+    xhr.send();
+  }
 });
 
 reset.addEventListener('click', function (event) {
@@ -72,15 +83,26 @@ reset.addEventListener('click', function (event) {
   entryForm.setAttribute('class', 'active');
 });
 
+$imgElement.onload = function () {
+  $characterList.setAttribute('class', 'active');
+  formResult.setAttribute('class', '');
+  loadingIcon.setAttribute('class', 'hidden');
+};
+
 randomButton.addEventListener('click', function (event) {
   event.preventDefault();
   var xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon/' + randomNumber);
   xhr.responseType = 'json';
+  xhr.addEventListener('error', function () {
+    entryForm.setAttribute('class', 'hidden');
+    $characterList.setAttribute('class', 'hidden');
+    noConnectionMessage.setAttribute('class', 'no-connection');
+  });
   xhr.addEventListener('load', function () {
     incorrect.setAttribute('class', 'invisible');
     entryForm.setAttribute('class', 'hidden');
-    $characterList.setAttribute('class', 'active');
+    $characterList.setAttribute('class', 'loading active');
     var object = {};
     var name = xhr.response.name;
     var link = xhr.response.sprites.other['official-artwork'].front_default;
@@ -162,9 +184,11 @@ function renderEntries(entry) {
 collectionLink.addEventListener('click', function (event) {
   $characterList.setAttribute('class', 'hidden');
   collectionPage.setAttribute('class', 'active');
+  noConnectionMessage.setAttribute('class', 'hidden');
   entryForm.setAttribute('class', 'hidden');
   if (data.entries.length === 0) {
     empty.setAttribute('class', 'active');
+    collectonSearchButton.setAttribute('class', 'search-reset');
   }
   total.textContent = 'Number of Pokemon: ' + data.entries.length;
   totaMobile.textContent = 'Number of Pokemon: ' + data.entries.length;
@@ -179,7 +203,7 @@ window.addEventListener('DOMContentLoaded', function (event) {
 pokemonList.addEventListener('click', function (event) {
   collection.textContent = 'Back to Collection';
   if ((event.target && event.target.className === 'pokemon-entry') | (event.target && event.target.className === 'collection-image') | (event.target && event.target.className === 'pokemon-name')) {
-    $characterList.setAttribute('class', 'active');
+    $characterList.setAttribute('class', 'loading active');
     collectionPage.setAttribute('class', 'hidden');
     for (var e = 0; e < data.entries.length; e++) {
       if (data.entries[e].entryId === parseInt(event.target.getAttribute('data-entry-id'))) {
@@ -246,6 +270,7 @@ confirmDelete.addEventListener('click', function (event) {
       pokemonList.appendChild(renderEntries(data.entries[g]));
     } else if (data.entries.length === 0) {
       empty.setAttribute('class', 'active');
+      collectonSearchButton.setAttribute('class', 'search-reset');
     }
   }
   total.textContent = 'Number of Pokemon: ' + data.entries.length;
