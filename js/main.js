@@ -189,7 +189,6 @@ collectionLink.addEventListener('click', function (event) {
   if (data.entries.length === 0) {
     empty.setAttribute('class', 'active');
     collectonSearchButton.setAttribute('class', 'search-reset');
-
   }
   total.textContent = 'Number of Pokemon: ' + data.entries.length;
   totaMobile.textContent = 'Number of Pokemon: ' + data.entries.length;
