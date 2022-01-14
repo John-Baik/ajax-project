@@ -25,7 +25,8 @@ var sort = document.getElementById('sort');
 
 searchButton.addEventListener('click', function (event) {
   event.preventDefault();
-  var userInput = form.elements.search.value;
+  var textInput = form.elements.search.value;
+  var userInput = encodeURIComponent(textInput.trim());
   var lowerCaseInput = userInput.toLowerCase();
   var xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon/' + lowerCaseInput);
