@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Pokemon';
+  src: url('./pokemon.ttf') format('truetype');
+}
+
 #modal-container {
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
@@ -110,6 +115,10 @@
 .navigation {
   background-color: red;
   color: white;
+}
+
+.intro-header {
+  margin-bottom: 0.5rem;
 }
 
 .title {
