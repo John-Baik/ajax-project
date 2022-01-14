@@ -65,8 +65,14 @@
         <button class="random-button">Generate Random Pokémon</button>
       </div>
     </div>
+    <div>
+      <p id="no-connection" class="hidden">Sorry, there was an error connecting to the network! Please check your internet connection.</p>
+    </div>
     <div data-view="entry-result" id="entry-result" class="hidden">
-      <form id="form-result">
+      <div id="loading-icon" class="lds-ring ">
+        <div></div>
+      </div>
+      <form id="form-result" class="hidden">
         <ul id="character-list">
           <li class="result-container">
             <div class="container-flex">
@@ -93,21 +99,24 @@
       </form>
     </div>
     <div data-view="collection" id="collection" class="hidden">
-      <div class="collection-header">
-        <p id="total-desktop" class="total"></p>
-        <h1>COLLECTION</h1>
-        <p id="total-mobile" class="total-mobile"></p>
-        <form id="category">
-          <select id="sort" name="sort">
-            <option value="newest">Sort By: Newest First</option>
-            <option value="oldest">Sort By: Oldest First</option>
-            <option value="alphabetical">Sort By: A - Z</option>
-            <option value="reverse-alphabetical">Sort By: Z - A</option>
-          </select>
-        </form>
+      <div>
+        <div class="collection-header">
+          <p id="total-desktop" class="total"></p>
+          <h1>COLLECTION</h1>
+          <p id="total-mobile" class="total-mobile"></p>
+          <form id="category">
+            <select id="sort" name="sort">
+              <option value="newest">Sort By: Newest First</option>
+              <option value="oldest">Sort By: Oldest First</option>
+              <option value="alphabetical">Sort By: A - Z</option>
+              <option value="reverse-alphabetical">Sort By: Z - A</option>
+            </select>
+          </form>
+        </div>
       </div>
       <div id="collection-container">
         <p id="empty-notice" class="hidden">No Pokémon have been added to Collection</p>
+        <a href="" id="collection-search-button" class="hidden">Search <i class="fas fa-redo-alt"></i></a>
         <ul class="collection-box">
         </ul>
       </div>

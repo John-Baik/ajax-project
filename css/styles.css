@@ -9,6 +9,44 @@
   z-index: 1;
 }
 
+.no-connection {
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+}
+
+.body-container {
+  height: 25rem;
+}
+
+#incorrect {
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+#empty-notice {
+  text-align: center;
+  font-weight: 700;
+  font-size: 4vw;
+}
+
+.header {
+  width: 100vw;
+  justify-content: space-between;
+  margin: 0 1rem;
+}
+
+#collection-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .modal-box {
   border: white solid;
   background-color: white;
@@ -20,22 +58,24 @@
   text-align: center;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
-  font-size: 1.4rem;
+  font-size: 5vw;
   padding-top: 1rem;
   padding-bottom: 1rem;
   line-height: 2.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .modal-options {
   display: flex;
   justify-content: space-around;
-  padding-bottom: 0.7rem;
+  padding-bottom: 1.7rem;
 }
 
 .modal-options > button {
   padding: 0.6rem 1rem;
   font-family: "Roboto", sans-serif;
-  font-size: 1.3rem;
+  font-size: 4vw;
   border-radius: 0.3rem;
   border: none;
   color: white;
@@ -73,7 +113,7 @@
 }
 
 .title {
-  font-size: 1.6rem;
+  font-size: 7vw;
   font-family: 'Pokemon', sans-serif;
   color: white;
   letter-spacing: 0.2rem;
@@ -86,7 +126,7 @@
 }
 
 .remove {
-  border: solid red;
+  border: 0.2vw solid red;
   color: red;
   border-radius: 0.4rem;
   background-color: white;
@@ -108,12 +148,17 @@
   color: white;
 }
 
+.tabs {
+  flex-direction: column;
+  gap: 0;
+  padding-right: 10vw;
+}
+
 .tabs > a {
-  font-size: 1.3rem;
+  font-size: 5vw;
   color: white;
   text-decoration: none;
   font-family: "Roboto", sans-serif;
-  transition: 0.5s;
 }
 
 .tabs > a:hover {
@@ -127,21 +172,21 @@
 
 .search-pokemon {
   font-family: "Roboto", sans-serif;
-  font-size: 3rem;
+  font-size: 10vw;
   color: red;
   text-align: center;
+  margin-block-end: 0;
 }
 
 #search-box {
-  padding: 1.3rem 1rem;
-  font-size: 1.5rem;
+  width: 90vw;
   border: solid;
+  padding: 0.5rem;
 }
 
 #submit {
-  font-size: 1.5rem;
+  font-size: 5vw;
   padding: 0.5rem 1.5rem;
-  margin-right: 1rem;
   color: white;
   border-radius: 0.5rem;
   background-color: #007bff;
@@ -159,10 +204,10 @@
 .random-container > button {
   background-color: #26a69a;
   color: white;
-  font-size: 1.5rem;
+  font-size: 5vw;
   padding: 1rem 1rem;
   border-radius: 0.5rem;
-  margin-top: 2rem;
+  margin-top: 0;
 }
 
 .random-container > button:hover {
@@ -182,7 +227,7 @@
 #total-mobile {
   display: flex;
   margin-top: 0;
-  font-size: 1.2rem;
+  font-size: 4vw;
 }
 
 #total-desktop {
@@ -203,16 +248,17 @@ ul {
   margin-top: 0;
   text-transform: uppercase;
   text-align: center;
+  font-size: 1.5rem;
 }
 
 .stats-title > p {
   font-family: "Roboto", sans-serif;
   border: solid red;
-  padding: 0.3rem 1rem;
+  padding: 1vw 3vw;
   margin-left: 2.5rem;
   background-color: red;
   color: white;
-  font-size: 1.5rem;
+  font-size: 4vw;
   margin-top: 2rem;
 }
 
@@ -224,17 +270,17 @@ ul {
 .stats > p {
   font-family: "Roboto", sans-serif;
   margin-right: 2rem;
-  font-size: 1.2rem;
+  font-size: 4vw;
   font-weight: 400;
-  padding-left: 2rem;
+  padding-left: 6vw;
 }
 
 .add {
   font-family: "Roboto", sans-serif;
   background-color: #26a69a;
   color: white;
-  font-size: 1.3rem;
-  padding: 1rem 1rem;
+  font-size: 4vw;
+  padding: 4vw;
   border: none;
 }
 
@@ -247,12 +293,18 @@ ul {
   background-color: #26a69a;
 }
 
+.collection-options > a:hover {
+  cursor: pointer;
+}
+
 .search-reset {
+  text-decoration: none;
+  margin-top: 2rem;
   font-family: "Roboto", sans-serif;
   background-color: red;
   color: white;
-  font-size: 1.3rem;
-  padding: 1rem 1.5rem;
+  font-size: 4vw;
+  padding: 4vw;
   border: none;
   border-radius: 15px;
 }
@@ -288,22 +340,18 @@ ul {
 }
 
 .collection-header > h1 {
-  font-size: 2.5rem;
+  font-size: 8vw;
   margin-bottom: 0.3rem;
 }
 
 #sort {
-  font-size: 1.3rem;
+  font-size: 5vw;
   padding: 0.3rem 1rem;
+  border: solid 1px;
 }
 
 #sort:hover {
   cursor: pointer;
-}
-
-#collection-container {
-  display: flex;
-  justify-content: center;
 }
 
 .collection-box {
@@ -319,14 +367,14 @@ ul {
   display: flex;
   align-items: center;
   flex-direction: column;
-  border: solid;
+  border: 0.3vw solid;
   margin: 0.5rem;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .pokemon-entry:hover {
   transform: scale(1.05);
-  cursor: pointer;
 }
 
 .big {
@@ -353,20 +401,173 @@ ul {
   display: flex;
   gap: 1rem;
   margin: 2rem 0;
-}
-
-.collection-options > a:hover {
-  cursor: pointer;
+  margin-bottom: 1rem;
 }
 
 #collection-container > p {
   font-family: "Roboto", sans-serif;
 }
 
-@media screen and (min-width: 768px) {
+.sort-option-button:hover {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 445px) {
+  #modal-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .tabs > a {
+    font-size: 1.3rem;
+  }
+
+  .collection-options > a {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.3rem;
+  }
+
+  #collection-container a {
+    font-size: 1rem;
+    padding: 1rem 1.4rem;
+  }
+
+  .no-connection {
+    font-size: 1.5rem;
+  }
+
+  #empty-notice {
+    font-size: 1rem;
+  }
+
+  .header {
+    width: 100vw;
+    justify-content: space-between;
+    margin: 0 2rem;
+  }
+
+  .modal-row1 > h1 {
+    font-size: 1.2rem;
+  }
+
+  .modal-options > button {
+    font-size: 1.3rem;
+    border-radius: 0.3rem;
+  }
+
+  .pokemon-entry {
+    border: 0.3vw solid black;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .collection-options {
+    margin: 2rem 0;
+  }
+
+  .result-image {
+    width: 14rem;
+  }
+
+  .tabs {
+    flex-direction: row;
+    gap: 2rem;
+    padding-right: 0;
+  }
+
+  .search-pokemon {
+    font-size: 3rem;
+  }
+
+  #search-box {
+    padding: 0.7rem 1rem;
+    font-size: 1.5rem;
+    width: 27rem;
+  }
+
+  #submit {
+    font-size: 1.5rem;
+  }
+
+  .random-container > button {
+    background-color: #26a69a;
+    color: white;
+    font-size: 1.5rem;
+    padding: 1rem 1rem;
+    border-radius: 0.5rem;
+  }
+
+  .random-container > button:hover {
+    background-color: #19cebd;
+    cursor: pointer;
+  }
+
+  .random-container > button:active {
+    background-color: #26a69a;
+  }
+
+  #total-mobile {
+    font-size: 1.2rem;
+  }
+
+  .stats-title > p {
+    padding: 0.3rem 0.3rem;
+    margin-left: 2.5rem;
+    background-color: red;
+    color: white;
+    font-size: 1.3rem;
+    margin-top: 2rem;
+  }
+
+  .stats > p {
+    padding-left: 2rem;
+    font-size: 1.2rem;
+  }
+
+  .add {
+    font-size: 1.3rem;
+    padding: 1rem 1rem;
+  }
+
+  .search-reset {
+    font-size: 1.3rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .collection-header > h1 {
+    font-size: 2.5rem;
+  }
+
+  #sort {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
   .modal-box {
     height: 16rem;
     width: 42rem;
+  }
+
+  .collection-options > a {
+    font-size: 1.5rem;
+  }
+
+  .tabs > a {
+    font-size: 2rem;
+    margin-left: 4rem;
+  }
+
+  #collection-container a {
+    font-size: 1.5rem;
   }
 
   .modal-row1 > h1 {
@@ -378,8 +579,6 @@ ul {
   .modal-options > button {
     padding: 1rem 1.5rem;
     font-size: 1.5rem;
-    border: none;
-    color: white;
   }
 
   .title {
@@ -389,11 +588,7 @@ ul {
   .tabs {
     display: flex;
     flex-direction: row;
-  }
-
-  .tabs > a {
-    font-size: 2rem;
-    margin-left: 4rem;
+    margin-right: 2rem;
   }
 
   .search-pokemon {
@@ -409,8 +604,6 @@ ul {
 
   #submit {
     font-size: 2rem;
-    padding: 0.5rem 3rem;
-    margin-right: 0;
   }
 
   .random-container > button {
@@ -485,11 +678,14 @@ ul {
     padding: 1rem 2rem;
   }
 
+  .remove {
+    border: 0.2rem solid red;
+  }
+
   .collection-header {
     font-size: 1.4rem;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
     padding-bottom: 0;
   }
 
@@ -499,28 +695,14 @@ ul {
   }
 
   #sort {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-family: "Roboto", sans-serif;
     padding: 0.3rem 1rem;
   }
 
-  #collection-container {
-    display: flex;
-    justify-content: center;
-  }
-
-  .collection-box {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
   .pokemon-entry {
     flex-basis: 20%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    border: solid black;
+    border: 0.2rem solid black;
     margin: 1rem;
   }
 
@@ -529,26 +711,12 @@ ul {
   }
 
   .pokemon-entry > h1 {
-    border: solid red;
-    background-color: red;
-    color: white;
-    padding: 0.4rem 1rem;
     font-size: 1.5rem;
     margin-top: 1rem;
-    font-family: "Roboto", sans-serif;
-  }
-
-  .collection-image {
-    width: 70%;
   }
 
   .collection-options {
-    display: flex;
     gap: 2rem;
-  }
-
-  .collection-options > a {
-    font-size: 1.5rem;
   }
 
   #collection-container > p {
@@ -561,7 +729,7 @@ ul {
 
   #total-desktop {
     display: flex;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
 
   .big {
@@ -572,4 +740,65 @@ ul {
     width: 16rem;
     margin: 0 1rem;
   }
+
+  .notification {
+    height: revert;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .collection-header {
+    margin: auto;
+    width: 121rem;
+  }
+}
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: red red red transparent;
+}
+
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 77vh;
+}
 }
