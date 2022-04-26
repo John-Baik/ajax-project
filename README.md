@@ -12,6 +12,8 @@ Try the application live [here:](https://john-baik.github.io/pokemon-catcher/)
 - CSS3
 - JavaScript
 - Pokemon API
+- XMLHttpRequest
+- JSON
 
 ## Features
 1. User can search for Pokemon
