@@ -421,6 +421,12 @@ ul {
   cursor: pointer;
 }
 
+.button-no-style {
+  padding: 0;
+  border: none;
+  border-radius: 0.5rem;
+}
+
 @media screen and (min-width: 445px) {
   #modal-container {
     background-color: rgba(0, 0, 0, 0.5);
