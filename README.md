@@ -6,8 +6,12 @@ If you were one of those kids in elementary school who had trading cards or had 
 
 ## Live Demo
 Try the application live [here:](https://john-baik.github.io/pokemon-catcher/)
+
 ## Technologies Used
-A list of technologies used to build the project, including databases, languages, libraries, and frameworks.
+- HTML5
+- CSS3
+- JavaScript
+- Pokemon API
 
 ## Features
 1. User can search for Pokemon
